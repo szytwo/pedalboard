@@ -20,7 +20,6 @@ import shutil
 import time
 from logging.handlers import TimedRotatingFileHandler
 
-import torchaudio
 from tqdm import tqdm
 
 
@@ -105,19 +104,6 @@ def read_json_lists(list_file):
         with open(fn, "r", encoding="utf8") as fin:
             results.update(json.load(fin))
     return results
-
-
-def load_wav(wav, target_sr):
-    speech, sample_rate = torchaudio.load(wav)
-    speech = speech.mean(dim=0, keepdim=True)
-    if sample_rate != target_sr:
-        assert (
-            sample_rate > target_sr
-        ), "wav sample rate {} must be greater than {}".format(sample_rate, target_sr)
-        speech = torchaudio.transforms.Resample(
-            orig_freq=sample_rate, new_freq=target_sr
-        )(speech)
-    return speech
 
 
 def get_full_path(path):

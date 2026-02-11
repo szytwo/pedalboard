@@ -182,3 +182,5 @@ docs/_sources/
 docs/_static/
 docs/*.html
 docs/*.js
+
+examples/wav/

@@ -10,7 +10,7 @@ venv\Scripts\activate
 
 pip install pedalboard -i https://pypi.tuna.tsinghua.edu.cn/simple
 
-pip install pydub scipy librosa
+pip install pydub scipy librosa tqdm
 
 
 nvidia-smi -L  # 查看GUID
